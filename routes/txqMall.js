@@ -212,6 +212,9 @@ router.post('/order/getOrderList', function(req, res, next) {
 router.post('/order/getOrderInfo', function(req, res, next) {
 	// 入参:code\userAccount
 	var response = Mock.mock({
+		code:1,
+		message:'SUCCESS',
+		data:{
 			"commIntroduce": "测试商品",
 			"shop":{
 				'shopId': 36,
@@ -268,8 +271,9 @@ router.post('/order/getOrderInfo', function(req, res, next) {
 				'addDateStr': null,
 				'payDateStr': null,
 				'openid': null,
-				'url': null
+				'url': "@image(250,#ffeabe)"
 			}
+		}
 	})
 	res.json(response);
 });
@@ -295,6 +299,14 @@ router.post('/wx/wxUserInfo', function(req, res, next) {
 				'openid': "oR38-s7Ombfbc3nmnuSYogGVZyR8",
 				'headimgurl': "https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqxmEBrrR9QSvl1KJIRmsHiaSQHQibrX6X41O5HXoZHSJxA28pIjF5rMcQgKgwf6SvWkianEKjr0zeKA/132"
 			})
+	}
+	res.json(response);
+});
+// 修改用户名
+router.post('/user/updateUserName', function(req, res, next) {
+	var response = {
+		code : 1,
+		message : 'SUCCESS'
 	}
 	res.json(response);
 });
@@ -410,6 +422,15 @@ router.post('/shop/getShopBalanceInfo', function(req, res, next) {
 			'cashOuting|-50--150' : 50,
 			'cashOutble|0-10' : 10
 		})
+	}
+	res.json(response);
+});
+// 商户提现
+router.post('/shop/addShopWithdraw', function(req, res, next) {
+	// console.log('收到的请求',req.body);
+	var response = {
+		code : 1,
+		message : 'SUCCESS'
 	}
 	res.json(response);
 });
